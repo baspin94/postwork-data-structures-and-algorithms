@@ -1,5 +1,14 @@
 function findFirstDuplicate(arr) {
-  // type your code here
+  let checkedValues = []
+  let firstDupe = -1
+  for (let i=0; i < arr.length; i++) {
+    if (checkedValues.includes(arr[i])) {
+      firstDupe = arr[i];
+      break;
+    } else {
+      checkedValues.push(arr[i])
+    }
+  } return firstDupe;
 }
 
 if (require.main === module) {
@@ -17,3 +26,11 @@ module.exports = findFirstDuplicate;
 
 // Please add your pseudocode to this file
 // And a written explanation of your solution
+/*
+1. Initialize empty array.
+2. Iterate through input array.
+  - Check if current value exists in array.
+      - If YES, return current value. END.
+      - If NO, add value to array and continue.
+3. After finish iterating through array, return -1. END.
+*/
